@@ -10,19 +10,8 @@ interface HeaderProps {
 
 export function Header({ tasksCounter }: HeaderProps) {
   // const tasksCounterText = TODO render 'tarefa' if tasksCounter equals 1, otherwise render 'tarefas'
-  const [tasksCounterText, setTasksCounterText] = useState<String>('')
-  
-
-  useEffect(() => {
-    if (tasksCounter == 1){
-      setTasksCounterText('tarefa')
-    }else if (tasksCounter > 1){
-      setTasksCounterText('tarefas')
-    }else{
-      setTasksCounterText('')
-    }
-  })
- 
+  const tasksCounterText = tasksCounter === 1 ? 'tarefa' : 'tarefas'
+   
   return (
     <View style={styles.container}>
       <Image source={logoImg} />
