@@ -78,6 +78,7 @@ export function TaskItem({task, index, toggleTaskDone, removeTask }:TaskItemProp
                 <TouchableOpacity
                   onPress={handleCancelEditing}
                 >
+                  
                       <Icon 
                         name="close"
                         size={24}
