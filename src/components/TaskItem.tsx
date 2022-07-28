@@ -9,8 +9,9 @@ interface TaskItemProps {
   index: number;
   toggleTaskDone: (id: number) => void;
   removeTask: (id: number) => void;
+  editTask: (id: number, editedValue:string) => void;
 }
-export function TaskItem({task, index, toggleTaskDone, removeTask }:TaskItemProps){
+export function TaskItem({task, index, toggleTaskDone, removeTask, editTask}:TaskItemProps){
   const [isEditing, setIsEditing] = useState(false)
   const [editedValue, setEditedValue] = useState(task.title)
   const textInputRef = useRef<TextInput>(null)
@@ -28,6 +29,8 @@ export function TaskItem({task, index, toggleTaskDone, removeTask }:TaskItemProp
     editTask(task.id, editedValue)
     setIsEditing(false)
   }
+
+
 
   useEffect(() => {
     if (textInputRef.current) {
@@ -78,7 +81,7 @@ export function TaskItem({task, index, toggleTaskDone, removeTask }:TaskItemProp
                 <TouchableOpacity
                   onPress={handleCancelEditing}
                 >
-                  
+
                       <Icon 
                         name="close"
                         size={24}
